@@ -1,0 +1,501 @@
+using System;
+
+//2d array
+namespace twoday
+{
+	public class Program
+	{
+		public static void Main()
+		{
+			int[,]arr=new int[2,2];
+			Console.WriteLine("enter values: ");
+			for(int row=0;row<2 ;row++)
+			{
+				for(int col=0;col<2 ;col++)
+				{
+					arr[row,col]=Convert.ToInt32(Console.ReadLine());
+				}
+			}
+			for(int row=0;row<2 ;row++)
+			{
+				for(int col=0;col<2;col++)
+				{
+					Console.Write(arr[row,col]+"\t");
+				}
+				Console.WriteLine();
+			}
+			Console.ReadLine();
+		}
+	}
+}
+
+//transpose
+namespace twoday{
+public class Program 
+{  
+    public static void Main()
+      {
+        int i,j,r,c;
+      	int[,] arr1 = new int[2,2];
+		int[,] brr1 = new int[2,2];
+   
+  Console.Write("\nInput the number of rows and columns of the first matrix :\n");	   
+  Console.Write("Rows : ");
+  r = Convert.ToInt32(Console.ReadLine());
+  Console.Write("Columns : ");  
+  c = Convert.ToInt32(Console.ReadLine());	   
+	   
+
+       Console.Write("Input elements in the matrix :\n");
+       for(i=0;i<r;i++)
+        {
+            for(j=0;j<c;j++)
+            {
+	           Console.Write("element - [{0}],[{1}] : ",i,j);
+			   arr1[i,j]=Convert.ToInt32(Console.ReadLine());	 
+            }
+        } 
+
+ 	 Console.Write("\nThe First matrix is :\n");
+  		for(i=0;i<r;i++)
+    		{
+      		Console.Write("\n");
+      		for(j=0;j<c;j++)
+          	Console.Write("{0}\t",arr1[i,j]);
+    		}
+  
+  for(i=0;i<r;i++)
+      {
+      for(j=0;j<c;j++)
+           {
+
+                   brr1[j,i]=arr1[i,j];
+            }
+       }
+
+      Console.Write("\n\nThe Transpose of a matrix is : ");
+      for(i=0;i<c;i++)
+	  {
+      Console.Write("\n");
+      for(j=0;j<r;j++)
+	  {
+           Console.Write("{0}\t",brr1[i,j]);
+      }
+  }
+      Console.Write("\n\n");
+	  }
+}
+}
+
+//Addition of matrix
+using System;  
+
+namespace twoday{
+public class Program  
+{  
+    public static void Main() 
+{
+        int i,j,n;
+    	int[,] arr1 = new int[50,50];
+		int[,] brr1 = new int[50,50];
+		int[,] crr1 = new int[50,50];
+  
+        Console.Write("Input the size of the square matrix (less than 5): ");
+	   n = Convert.ToInt32(Console.ReadLine());	   
+  
+    /* Stored values into the array*/
+       Console.Write("Input elements in the first matrix :\n");
+       for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+	           Console.Write("element - [{0},{1}] : ",i,j);
+			   arr1[i,j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }   
+  
+       Console.Write("Input elements in the second matrix :\n");
+       for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+	           Console.Write("element - [{0},{1}] : ",i,j);
+		       brr1[i,j] = Convert.ToInt32(Console.ReadLine());			   
+            }
+        }    
+   Console.Write("\nThe First matrix is :\n");
+  for(i=0;i<n;i++)
+    {
+      Console.Write("\n");
+      for(j=0;j<n;j++)
+           Console.Write("{0}\t",arr1[i,j]);
+    }
+  
+  Console.Write("\nThe Second matrix is :\n");
+  for(i=0;i<n;i++)
+    {
+      Console.Write("\n");
+      for(j=0;j<n;j++)
+      Console.Write("{0}\t",brr1[i,j]);
+    }
+/* calculate the sum of the matrix */   
+   for(i=0;i<n;i++)
+       for(j=0;j<n;j++)
+            crr1[i,j]=arr1[i,j]+brr1[i,j];
+   Console.Write("\nThe Addition of two matrix is : \n");
+   for(i=0;i<n;i++){
+       Console.Write("\n");
+       for(j=0;j<n;j++)
+            Console.Write("{0}\t",crr1[i,j]);
+   }
+   Console.Write("\n\n");
+  }
+}
+}
+
+//Identity matrix
+using System;
+
+namespace twoday{
+ public class Program {
+  public static void Main() {
+    int [,]arr =new int [2,2];
+	   int  i, j;
+
+    Console.Write("enter values for array ");
+    for(int row=0;row<2;row++)
+    {
+        for(int col=0;col<2;col++)
+        {
+            arr[row,col]=Convert.ToInt32(Console.ReadLine());
+            
+        }
+    }
+    Console.WriteLine("Array :");
+     for(int row=0;row<2;row++)
+    {
+        for(int col=0;col<2;col++)
+        {
+            Console.Write(arr[row,col]+"\t");
+        }
+        Console.WriteLine();
+    }
+     if((arr[0,0]==1&&arr[1,1]==1)&&(arr[0,1]==0&&arr[1,0]==0))
+         Console.WriteLine("The matrix is an identity matrix"); 
+    else
+        Console.WriteLine("Not an identity matrix"); 
+  
+	   Console.WriteLine("\nIdentity matrix is \n");
+        for(i = 0;i < 2;i++)
+        {
+            for(j = 0;j < 2;j++)
+            {
+                if(i == j)
+                {
+                    arr[i, j] = 1;
+                    Console.Write("{0} ", arr[i, j]);
+                }
+                else
+                {
+                    arr[i, j] = 0;
+                    Console.Write("{0} ", arr[i, j]);
+                }
+            }
+            Console.Write("\n");
+        } 
+  }
+}
+}
+
+//jagged array
+public class Program  
+{  
+    public static void Main()  
+    {  
+        int[][] arr = new int[3][]{  
+        new int[] { 11, 21, 56, 78 },  
+        new int[] { 2, 5, 6, 7, 98, 5 },  
+        new int[] { 2, 5 }  
+        };    
+        // Traverse array elements  
+        for (int i = 0; i < arr.Length; i++)  
+        {  
+            for (int j = 0; j < arr[i].Length; j++)  
+            {  
+                System.Console.Write(arr[i][j]+" ");  
+            }  
+            System.Console.WriteLine();  
+        }  
+    }  
+}  
+
+//Var keyword
+using System;
+
+namespace twoday{
+ public class Program {
+  public static void Main() {
+   var i=2;
+	  i=Convert.ToInt32("3");
+	  Console.WriteLine(i);
+	 Console.ReadLine(); 
+  }
+}
+}
+
+//dynamic keyword
+using System;
+
+namespace twoday{
+ public class Program {
+  public static void Main() {
+   dynamic i=2;
+	  i="Vikash";
+	  Console.WriteLine(i);
+	 Console.ReadLine(); 
+  }
+}
+}
+
+//FUNCTIONS
+//sum
+using System;
+
+namespace twoday{
+ public class Program {
+  public static void Main() {
+  int a=1,b=5;
+	  int c=Sum(1,5);
+		  Console.WriteLine(c);
+	 Console.ReadLine(); 
+  }
+
+	public static int Sum (int a, int b)
+	{
+		return (a+b);
+	}
+
+}}
+
+//operations using functions
+using System;
+
+namespace twoday{
+ public class Program {
+  public static void Main() {
+             int num1, num2,n;
+            int y,w,z;
+            float x;
+ 
+           Console.WriteLine("Enter the choice:1.addition 2.subtraction 3.multiplication 4.division\n");  
+            Console.Write("Enter first number\t\t");
+            num1 = Convert.ToInt32(Console.ReadLine());
+ 
+            Console.Write("\n\nEnter second number\t\t");
+            num2 = Convert.ToInt32(Console.ReadLine());
+ 			
+	  Console.Write("\n\nEnter choice\t\t");
+      n = Convert.ToInt32(Console.ReadLine());
+	  switch(n)
+	  {
+		  case 1:z=Add(num1,num2);
+			  Console.WriteLine("Addition:"+z);
+			  break;
+		  case 2:y=Sub(num1,num2);
+			   Console.WriteLine("Subtraction:"+y);
+			  break;
+		  case 3:x=Mul(num1,num2);
+			   Console.WriteLine("Multiplication:"+x);
+			  break;
+		  case 4:w=Div(num1,num2);	  
+			   Console.WriteLine("Division:"+w);
+			  break;
+	  } 
+
+  }
+
+	public static int Add (int a, int b)
+	{
+		
+		return (a+b);
+	}
+	 public static int Sub (int a, int b)
+	{
+		return (a-b);
+	}
+	 public static int Mul (int a, int b)
+	{
+		return (a*b);
+	}
+	 public static int Div (int a, int b)
+	{
+		return (a/b);
+	}
+
+}}
+
+//swapping using functions
+using System;
+
+namespace twoday{
+public class Program
+{
+    public static void interchange(ref int num1, ref int num2)
+    {
+        int newnum;
+        newnum = num1;
+        num1 = num2;
+        num2 = newnum;
+    }
+    public static void Main()
+    {
+      int n1,n2;
+	  Console.Write("\n\nFunction : To swap the values of two integer numbers :\n");
+      Console.Write("----------------------------------------------------------\n");
+	  Console.Write("Enter a number: ");
+      n1= Convert.ToInt32(Console.ReadLine());
+      Console.Write("Enter another number: ");
+      n2= Convert.ToInt32(Console.ReadLine());		
+      interchange( ref n1, ref n2 );
+      Console.WriteLine( "Now the 1st number is : {0} , and the 2nd number is : {1}", n1, n2 );
+    }
+}
+}
+
+//parameters
+using System;
+public class Program {
+  public static void Main() {
+      int a=5,b=4;
+	  int c;
+	  sum(a,b,out c);
+	Console.WriteLine("the sums is "+c);
+	
+  }
+	
+public static void sum(int a , int b,out int x)	
+{
+	x=a+b;
+}
+}
+
+//Palindrom
+using System;
+namespace LogicalPrograms
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter a string to Check Palindrome : ");
+            string name = Console.ReadLine();
+            string reverse = string.Empty;
+            
+            for (int i = name.Length - 1; i >= 0; i--)
+            {
+                reverse += name[i];
+            }
+            
+            if (name == reverse)
+            {
+                Console.WriteLine("it is Palindrome.");
+            }
+            else
+            {
+                Console.WriteLine("it is not Palindrome");
+            }
+            Console.ReadLine();
+        }
+    }
+} 
+
+//count no of vowels in string
+using System;
+public class Program {
+  public static void Main() {
+  string str1;
+        Console.Write("enter the string1: ");
+        str1=Console.ReadLine();
+  
+      int i, len, vowel_count, cons_count;
+
+      vowel_count = 0;
+      cons_count = 0;
+      // find length
+      len = str1.Length;
+      for(i=0; i<len; i++) {
+         if(str1[i] =='a' || str1[i]=='e' || str1[i]=='i' || str1[i]=='o' || str1[i]=='u' || str1[i]=='A' || str1[i]=='E' || str1[i]=='I' || str1[i]=='O' || str1[i]=='U') {
+            vowel_count++;
+         } else {
+            cons_count++;
+         }
+      }
+      Console.Write("\nVowels in the string: {0}\n", vowel_count);
+	  
+    }  
+}
+
+//uppercase
+using System;
+ 
+namespace twoday{
+ public class Program {
+    public static void Main()
+    {
+  
+        string str1 = "i love my india";
+        string upperstr1 = str1.ToUpper();
+  
+        Console.WriteLine(upperstr1);
+    }
+}
+}
+
+//capital 1st letter of each word
+
+using System;
+public class Program  
+    {  
+       public  static void Main(string[] args)  
+        {
+		   string str="i love my country";
+		   char[] arr=str.ToCharArray();
+		   for(int i=0;i<str.Length;i++)
+		   {
+			   if(i==0)
+			   {
+				   arr[i]=Convert.ToChar(str[i].ToString().ToUpper());
+			   }
+			   else
+				   
+			   {
+				   if(str[i]==' ')
+				   {
+					 
+					   arr[i+1]=Convert.ToChar(str[i+1].ToString().ToUpper());
+				   }			  
+			   }		   
+	   }
+	string output=new string (arr);
+		   Console.WriteLine(output);
+		   
+}
+}
+
+//Method 2:
+
+string sample = "i love my india";
+string []sample1 = sample.Split(' ');
+string sample2=string.Empty;
+for (int i = 0; i < sample1.Length; i++)
+{
+if (sample1[i].Length > 1)
+{
+
+sample2 = sample2 + " " + sample1[i].Substring(0, 1).ToUpper() + sample1[i].Substring(1, sample1[i].Length-1);
+}
+else
+{
+sample2 = sample2 + sample1[i].ToUpper();
+}
+}
