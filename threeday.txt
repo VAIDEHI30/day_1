@@ -1,0 +1,447 @@
+//Student Roll number and name
+using System;
+
+namespace threeday{
+public class student
+{
+	public int rollNo;
+	public string studentName;
+}
+public class program{
+	public static void Main()
+	{
+		student s1=new student();
+		
+		Console.WriteLine("Enter student roll no:");
+		s1.rollNo=Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine("Enter student name:");
+		s1.studentName=Console.ReadLine();
+		
+		Console.WriteLine("Student details are:");
+		Console.WriteLine("Student Roll No: "+s1.rollNo);
+		Console.WriteLine("Student Name: "+s1.studentName);
+		
+	}
+}
+}
+
+//By calling the methods 
+using System;
+
+namespace threeday{
+public class student
+{
+	public int rollNo;
+	public string studentName;
+	
+	public void getStudentData()
+	{
+		Console.WriteLine("Enter student roll no:");
+		rollNo=Convert.ToInt32(Console.ReadLine());
+		
+		Console.WriteLine("Enter student name:");
+		studentName=Console.ReadLine();
+	}
+	public void printStudentData()
+	{
+		Console.WriteLine("Student details are:");
+		Console.WriteLine("Student Roll No: "+rollNo);
+		Console.WriteLine("Student Name: "+studentName);
+	}
+	
+}
+public class program{
+	public static void Main()
+	{
+		student s1=new student();
+		s1.getStudentData();
+		s1.printStudentData();
+		
+	}
+}
+}
+
+//copy and parameter constructor
+using System;
+
+namespace threeday{
+public class student
+{
+	public int rollNo;
+	public string studentName;
+
+public student(int rollNo,string studentName) // parameterized constructor
+{
+this.rollNo=rollNo;
+this.studentName=studentName;
+}
+}
+
+public class program{
+	public static void Main()
+	{
+		
+		student s1=new student(17,"VD");
+	Console.WriteLine("Student details are:");
+		Console.WriteLine("Student Roll No: "+s1.rollNo);
+		Console.WriteLine("Student Name: "+s1.studentName);
+		
+	}
+}
+}
+
+//private constructor
+
+using System;
+
+namespace threeday{
+public class counter
+{
+	private counter()
+	{
+	}
+
+}
+
+public class Program  
+    {  
+       public  static void Main()  
+        {
+		 Console.WriteLine("Private COnstructor");
+		   Console.WriteLine();
+	   
+}
+}
+}
+
+//
+using System;
+
+namespace threeday{public class employee
+{
+	public float salary=40000;
+}
+public class programmer:employee
+{
+public float bonus =10000;
+}
+public class Program  
+    {  
+       public  static void Main()  
+        {
+		   programmer p1= new programmer();
+		 
+		 Console.WriteLine(p1.salary);
+		   Console.WriteLine();
+	   
+}
+}
+}
+
+//Inheritance
+using System;
+
+namespace threeday
+{
+    public class Animal
+    {
+        public void eat()
+        {
+            Console.WriteLine("Dog can eat");
+        }
+    }
+    public class Dog: Animal
+    {
+        public void bark()
+        {
+            Console.WriteLine("Dog can Bark");
+        }
+        public static void Main(string[] args)
+        {
+            Dog d = new Dog();
+            d.eat();
+            d.bark();
+            Console.ReadLine();
+        }
+    }
+}
+
+//generations
+using System;
+					
+public class grandfather
+{
+	public void display1()
+	{
+		Console.WriteLine("I am grandfather");
+	
+	}
+}
+class father: grandfather
+{
+ public void display2()
+ {
+   Console.WriteLine("I am father");
+ }
+}
+class son: father
+{
+ public void display3()
+ {
+   Console.WriteLine("I am son");
+ }
+}
+	
+	public class Class2
+	{
+		public static void Main()
+		{
+			son s1=new son();
+			s1.display1();
+			s1.display2();
+			s1.display3();
+			
+		}
+	}
+
+//area of shape
+using System;
+
+public class shape 
+{
+ 
+  
+}
+
+public class rectangle : shape  
+{
+ public void rectarea(int a , int b)
+ {
+ Console.WriteLine("area of rect is "+(a*b));
+ }
+}
+public class  square : rectangle
+{
+public void squarearea(int s)
+{
+Console.WriteLine("area of square is "+(s*s));
+}
+}
+
+
+public class Program
+{
+  public static void Main()
+  {
+	  square s1 = new square();
+	  Console.WriteLine("calculate area for 1.rectangle\n2.area of square");
+	  int choice=Convert.ToInt32(Console.ReadLine());
+	
+	  switch(choice)
+	  {
+		  case 1:
+			  {
+			   Console.WriteLine("enter length");
+	  int a=Convert.ToInt32(Console.ReadLine());
+			   Console.WriteLine("enter breadth");
+	  int b=Convert.ToInt32(Console.ReadLine());
+			  s1.rectarea(a,b);
+			  break;}
+		  case 2:
+			  {
+			  Console.WriteLine("enter side of square");
+	  int s=Convert.ToInt32(Console.ReadLine());
+			   s1.squarearea(s);
+			  break;
+			  }
+	 
+		  default:Console.WriteLine("invalid input");
+			  break;
+	  }
+  }
+}
+
+//Abstraction
+using System;
+					
+namespace threeday
+{
+	public abstract class A
+	{
+		public abstract void Abstractshow();
+		public void NonAbstractShow()
+		{
+			Console.WriteLine("Not an Abstract method");
+		}
+	}
+	public class B:A
+	{
+		public override void Abstractshow()
+		{
+			Console.WriteLine("An Abstract method definition in class B");
+		}
+	}
+	public class Abstract
+	{
+		public static void Main()
+		{
+			B b=new B();
+			b.Abstractshow();
+			b.NonAbstractShow();
+			Console.ReadLine();
+		}
+	}
+}
+
+//Wholesaler
+using System;
+
+public abstract class wholeseller
+{
+  public abstract void Discount();
+}
+public class retailer : wholeseller
+{
+int price=0;
+ public void Price()
+  {
+    Console.WriteLine("enter price");
+	price=Convert.ToInt32(Console.ReadLine());
+	  
+  }
+  public override void Discount()
+  {
+  Console.WriteLine("enter discount");
+	int discount=Convert.ToInt32(Console.ReadLine());
+	int amt=price-discount;
+	Console.WriteLine("Discounted amount is "+amt);
+    
+  }
+}
+
+public class Program
+{
+public   static void Main(string[] args)
+  {
+    retailer r1 = new retailer(); 
+    r1.Price(); 
+    r1.Discount(); 	
+  }
+}
+
+//Create a new C # project with three classes plus another class to test the logic in your code. The main classes of the program are the following classes:Person,Student,Professor.The Student and Teacher classes inherit from the Person class.The Student class will include a public Study() method that will write I'm studying on the screen.The Person class must have two public methods Greet() and SetAge(int age) that will assign the age of the person.The Teacher class will include a public Explain() method that will write I'm explaining on the screen.Also create a public method ShowAge() in the Student class that writes My age is: x years old on the screen.You must create another test class called StudentProfessorTest with a Main method to do the following:Create a new Person and make him say hello.Create a new Student, set an age, say hello, and display her age on the screen.Create a new Teacher, set an age, say hello and start the explanation.
+
+using System;
+ 
+public class StudentAndTeacherTest
+{
+    public static void Main()
+    {
+        Person myPerson = new Person();
+        myPerson.Greet();
+ 
+        Student myStudent = new Student();
+        myStudent.SetAge(21);
+        myStudent.Greet();
+        myStudent.ShowAge();
+        myStudent.Study();
+ 
+        Teacher myTeacher = new Teacher();
+        myTeacher.SetAge(30);
+        myTeacher.Greet();
+        myTeacher.Explain();
+    }
+}
+ 
+public class Person
+{
+    protected int age;
+ 
+    public void Greet()
+    {
+        Console.WriteLine("Hello!");
+    }
+ 
+    public void SetAge(int n)
+    {
+        age = n;
+    }
+}
+ 
+public class Student : Person
+{
+    public void Study() 
+    {
+        Console.WriteLine("I'm studying");
+    }
+ 
+    public void ShowAge()
+    {
+        Console.WriteLine("My age is {0} years old", age);
+    }
+}
+ 
+public class Teacher : Person
+{
+    public void Explain()
+    {
+        Console.WriteLine("I'm explaining");
+    }
+}
+
+//Create a C# program to manage a photo book using object-oriented programming.To start, create a class called PhotoBook with a private attribute numPages of type int. It must also have a public method GetNumberPages that will return the number of photo book pages.The default constructor will create an album with 16 pages. There will be an additional constructor, with which we can specify the number of pages we want in the album.There is also a BigPhotoBook class whose constructor will create an album with 64 pages.Finally create a PhotoBookTest class to perform the following actions:Create a default photo book and show the number of pages.Create a photo book with 24 pages and show the number of pages
+Create a large photo book and show the number of pages
+
+using System;
+ 
+public class PhotoBookTest
+{
+    public static void Main()
+    {
+        PhotoBook myAlbum1 = new PhotoBook();
+        Console.WriteLine(myAlbum1.GetNumberPages());
+ 
+        PhotoBook myAlbum2 = new PhotoBook(24);
+        Console.WriteLine(myAlbum2.GetNumberPages());
+ 
+        SuperPhotoBook myBigPhotoAlbum1 = new SuperPhotoBook();
+        Console.WriteLine(myBigPhotoAlbum1.GetNumberPages());
+    }
+}
+ 
+public class PhotoBook
+{
+    protected int numPages;
+ 
+    public PhotoBook()
+    {
+        numPages = 16;
+    }
+ 
+    public PhotoBook(int numPages)
+    {
+        this.numPages = numPages;
+    }
+ 
+    public int GetNumberPages()
+    {
+        return numPages;
+    }
+}
+ 
+public class SuperPhotoBook : PhotoBook
+{
+    public SuperPhotoBook()
+    {
+        numPages = 64;
+    }
+}
+
+
+
+
+
+
+
+
